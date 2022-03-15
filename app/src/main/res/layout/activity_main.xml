@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/buttonActivate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Activate Device Admin App"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/buttonMakeDeviceOwner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Make Device Owner"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/buttonActivate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/buttonSetNewPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set New Password"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/buttonMakeDeviceOwner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/buttonLock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lock Now"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/buttonSetNewPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/buttonDisableCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disable/Enable Camera"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/buttonLock"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/buttonDisableSS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disable/Enable Screenshot"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/buttonDisableCamera"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/buttonDisableAdjustVolume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disable Adjust Volume"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/buttonDisableSS"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/buttonDisableOutgoingCalls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disable Outgoing Calls"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/buttonDisableAdjustVolume"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/buttonMuteSound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disable/Enable Sound"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/buttonDisableOutgoingCalls"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/buttonSms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disable SMS"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/buttonMuteSound"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disable/Enable Maps"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/buttonSms"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

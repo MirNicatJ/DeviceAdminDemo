@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Device Admin Demo</string>
+    <string name="admin_receiver_status">Status: %1s</string>
+    <string name="admin_receiver_status_enabled">admin enabled</string>
+    <string name="admin_receiver_status_disable_warning">admin disable requested</string>
+    <string name="admin_receiver_status_disabled">admin disabled</string>
+    <string name="admin_receiver_status_pw_changed">password changed</string>
+    <string name="description">Description test</string>
+    <string name="label">Label test</string>
+    <string name="add_admin_extra_app_text">Extra app text</string>
+</resources>
