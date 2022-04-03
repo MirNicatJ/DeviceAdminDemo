@@ -122,12 +122,56 @@
             android:layout_marginTop="20dp"/>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonDisableMaps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Disable/Enable Maps"
             android:textAllCaps="false"
             app:layout_constraintTop_toBottomOf="@id/buttonSms"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/buttonDisableFactoryReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disable/Enable Factory Reset"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/buttonDisableMaps"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/buttonConfigBrightness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disable/Enable Brightness"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/buttonDisableFactoryReset"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/buttonSetMessages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set Info Messages"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/buttonConfigBrightness"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/buttonWipeData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wipe data"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/buttonSetMessages"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="20dp"/>

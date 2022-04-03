@@ -14,6 +14,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.crocusoft.deviceadmindemo.databinding.ActivityMainBinding
 
+//dpm set-device-owner com.crocusoft.deviceadmindemo/.AdminReceiver
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var dpm: DevicePolicyManager
@@ -24,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding?.root)
         dpm = getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
@@ -94,17 +97,26 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonDisableSS.setOnClickListener {
-            dpm.setScreenCaptureDisabled(adminReceiver,
+            dpm.setScreenCaptureDisabled(
+                adminReceiver,
                 !dpm.getScreenCaptureDisabled(adminReceiver)
             )
         }
 
         buttonDisableAdjustVolume.setOnClickListener {
-            dpm.addUserRestriction(adminReceiver, UserManager.DISALLOW_ADJUST_VOLUME)
+            if (dpm.getUserRestrictions(adminReceiver)
+                    .get(UserManager.DISALLOW_ADJUST_VOLUME) as? Boolean == true
+            ) {
+                dpm.clearUserRestriction(adminReceiver, UserManager.DISALLOW_ADJUST_VOLUME)
+            } else dpm.addUserRestriction(adminReceiver, UserManager.DISALLOW_ADJUST_VOLUME)
         }
 
         buttonDisableOutgoingCalls.setOnClickListener {
-            dpm.addUserRestriction(adminReceiver, UserManager.DISALLOW_OUTGOING_CALLS)
+            if (dpm.getUserRestrictions(adminReceiver)
+                    .get(UserManager.DISALLOW_OUTGOING_CALLS) as? Boolean == true
+            ) {
+                dpm.clearUserRestriction(adminReceiver, UserManager.DISALLOW_OUTGOING_CALLS)
+            } else dpm.addUserRestriction(adminReceiver, UserManager.DISALLOW_OUTGOING_CALLS)
         }
 
         buttonMuteSound.setOnClickListener {
@@ -112,15 +124,49 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonSms.setOnClickListener {
-            dpm.addUserRestriction(adminReceiver, UserManager.DISALLOW_SMS)
+            if (dpm.getUserRestrictions(adminReceiver)
+                    .get(UserManager.DISALLOW_SMS) as? Boolean == true
+            ) {
+                dpm.clearUserRestriction(adminReceiver, UserManager.DISALLOW_SMS)
+            } else dpm.addUserRestriction(adminReceiver, UserManager.DISALLOW_SMS)
         }
 
-        button.setOnClickListener {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                dpm.setPackagesSuspended(
-                    adminReceiver,
-                    arrayOf("com.google.android.apps.maps"),
-                    dpm.isPackageSuspended(adminReceiver, "com.google.android.apps.maps").not()
+        buttonDisableMaps.setOnClickListener {
+            dpm.setPackagesSuspended(
+                adminReceiver,
+                arrayOf("com.google.android.apps.maps"),
+                dpm.isPackageSuspended(adminReceiver, "com.google.android.apps.maps").not()
+            )
+        }
+
+        buttonDisableFactoryReset.setOnClickListener {
+            if (dpm.getUserRestrictions(adminReceiver)
+                    .get(UserManager.DISALLOW_FACTORY_RESET) as? Boolean == true
+            ) {
+                dpm.clearUserRestriction(adminReceiver, UserManager.DISALLOW_FACTORY_RESET)
+            } else dpm.addUserRestriction(adminReceiver, UserManager.DISALLOW_FACTORY_RESET)
+        }
+
+        buttonConfigBrightness.setOnClickListener {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                if (dpm.getUserRestrictions(adminReceiver)
+                        .get(UserManager.DISALLOW_CONFIG_BRIGHTNESS) as? Boolean == true
+                ) {
+                    dpm.clearUserRestriction(adminReceiver, UserManager.DISALLOW_CONFIG_BRIGHTNESS)
+                } else dpm.addUserRestriction(adminReceiver, UserManager.DISALLOW_CONFIG_BRIGHTNESS)
+            }
+        }
+
+        buttonSetMessages.setOnClickListener {
+            dpm.setShortSupportMessage(adminReceiver, "Icazə verilmir")
+            dpm.setLongSupportMessage(adminReceiver, "Bu əməliyyata icazə verilmir")
+        }
+
+        buttonWipeData.setOnClickListener {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                dpm.wipeData(
+                    DevicePolicyManager.WIPE_EXTERNAL_STORAGE,
+                    "Kredit odenmediyi ucun melumatlar silinir"
                 )
             }
         }
